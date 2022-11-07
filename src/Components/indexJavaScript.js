@@ -13,7 +13,7 @@ export const validations = (data) => {
   //Name is empty logic
   if (data.names == "") {
     console.log("Name is Empty");
-    errors.names = "Name is Empty";
+    errors.names = "Name Should not be Empty";
   } else if (!userNameCheck.test(data.names)) {
     errors.names = "Alphabet mint 3 max 15";
   } else {
@@ -23,7 +23,7 @@ export const validations = (data) => {
   //Last name is empty logic
   if (data.lname == "") {
     console.log("Last Name is Empty");
-    errors.lname = "Last Name is Empty";
+    errors.lname = "Last Name Should not be Empty";
   } else if (!lastNameCheck.test(data.lnames)) {
     errors.lname = "Alphabet mint 3 max 15";
   } else {
@@ -34,7 +34,7 @@ export const validations = (data) => {
   //Email is empty logic
   if (data.email == "") {
     console.log("Email is Empty");
-    errors.email = "Email is Empty";
+    errors.email = "Email Should not be Empty";
   } else if (!emailCheck.test(data.email)) {
     errors.email = "Invalid Email ! @gmail.com";
   } else {
@@ -44,20 +44,22 @@ export const validations = (data) => {
   //Phone is empty logic
   if (data.phone == "") {
     console.log("Phone is Empty");
-    errors.phone = "Phone is Empty";
+    errors.phone = "Phone Should not be Empty";
   } else if (!phoneCheck.test(data.phone)) {
     errors.phone = "Invalid Phone Number";
   } else {
     errors.phone = "";
-    console.log("Phone is not Empty");
+    console.log("Phone Should not be  Empty");
   }
+
+  console.log("genderrrr", data.male);
 
   //Age ::: Date of Birth
   if (!data.date || !data.month || !data.year) {
     console.log("All age is empty");
-    errors.date = "Date is Empty";
-    errors.month = "Month is Empty";
-    errors.year = "Year is Empty";
+    errors.date = "Date Should not be Empty";
+    errors.month = "Month Should not be Empty";
+    errors.year = "Year Should not be Empty";
   }
 
   if (data.date) {
@@ -102,16 +104,25 @@ export const validations = (data) => {
   } else if (data.month === "February" && data.date == 28) {
     console.log("yes i am 28");
   } else if (data.month === "February" && data.date > 28) {
-    console.log("i am gartr 28");
+    console.log("i am greater 28");
     errors.month =
       "28 or 29 days in February,this date is not Available in this  year";
     errors.year = "This Month is not Available in this Year ";
   }
+  //gender
 
+     console.log("gender", data.gender);
+  if (data.gender === ""){
+    console.log("empty gender");
+    errors.gender="Gender Should not be Empty"
+  } else {
+    console.log("gender is avalibale");
+}
+  
   //password is empty logic
   if (data.password == "") {
     console.log("Password is Empty");
-    errors.password = "Password is Empty";
+    errors.password = "Password Should not be Empty";
   } else if (!passwordCheck.test(data.password)) {
     errors.password = "Invalid Password min 8 ,max 15 ";
   } else {
@@ -122,7 +133,7 @@ export const validations = (data) => {
   //conform Password is empty logic
   if (data.conformPassword == "") {
     console.log("conform Password is Empty");
-    errors.conformPassword = "Conform Password is Empty";
+    errors.conformPassword = "Conform Password Should not be Empty";
   } else if (!conformPasswordCheck.test(data.conformPassword)) {
     errors.conformPassword = "Invalid Conform Password min 8 ,max 15 ";
   }
